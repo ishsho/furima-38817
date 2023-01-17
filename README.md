@@ -5,15 +5,16 @@
 
 ## usersテーブル
 
-| Column                |  Type      |  Options               |
-|-----------------------|------------|------------------------|
-| nickname              | string     | nul:false              |
-| email                 | string     | nul:false              |
-| password              | string     | nul:false              |
-| password_confirmation | string     | nul:false              |
-| name_japanese         | string     | nul:false              |
-| name_katakana         | string     | nul:false              |
-| birthday              | integer    | nul:false              |
+| Column                |  Type      |  Options                   |
+|-----------------------|------------|----------------------------|
+| nickname              | string     | nul:false                  |
+| email                 | string     | nul:false, unique: true    |
+| encrypted_password    | string     | nul:false                  |
+| family_name_japanese  | string     | nul:false                  |
+| first_name_japanese   | string     | nul:false                  |
+| family_name_katakana  | string     | nul:false                  |
+| first_name_katakana   | string     | nul:false                  |
+| birthday              | date       | nul:false                  |
 
 
 ### Association
@@ -55,7 +56,7 @@ belongs_to :user
 
 ### Association
 
-belongs_to : users
+belongs_to : user
 belongs_to : item
 has_one    : transact
 
@@ -66,7 +67,7 @@ has_one    : transact
 | Column                |  Type      |  Options                     |
 |-----------------------|------------|------------------------------|
 | postal_code           | string     | nul:false                    |
-| prefectures_id        | integer    | nul:false                    |
+| area_id               | integer    | nul:false                    |
 | municipalities        | string     | nul:false                    |
 | adress                | string     | nul:false                    |
 | building              | string     |                              |
