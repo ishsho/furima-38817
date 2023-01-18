@@ -73,21 +73,21 @@ RSpec.describe User, type: :model do
       end
 
       it 'first_name_japaneseは、全角（漢字・ひらがな・カタカナ）でないと登録できない' do
-        @user.family_name_japanese = 'ﾀﾛｳ'
+        @user.first_name_japanese = 'ﾀﾛｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name japanese is invalid")        
+        expect(@user.errors.full_messages).to include("First name japanese is invalid")        
+      end
+
+      it 'family_name_katakanaは、全角でないと登録できない' do
+        @user.family_name_katakana = 'ﾔﾏﾀﾞ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name katakana is invalid")
       end
 
       it 'first_name_katakanaは、全角でないと登録できない' do
-        @user.family_name_japanese = 'ﾔﾏﾀﾞ'
+        @user.first_name_katakana = 'ﾀﾛｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name japanese is invalid")
-      end
-
-      it 'first_name_katakanaは、全角でないと登録できない' do
-        @user.family_name_japanese = 'ﾀﾛｳ'
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Family name japanese is invalid")
+        expect(@user.errors.full_messages).to include("First name katakana is invalid")
       end
 
       it 'birthdayが空では登録できない' do
@@ -118,6 +118,20 @@ RSpec.describe User, type: :model do
       end
 
       it 'passwordが半角英数字混合でないと登録できない' do
+        @user.password = '123456'
+        @user.password_confirmation = '123456'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+
+      it '英字のみのpasswordでは登録できない' do
+        @user.password = 'aaaaaa'
+        @user.password_confirmation = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+
+      it '数字のみのpasswordでは登録できない' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
