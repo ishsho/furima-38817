@@ -35,7 +35,7 @@ has_many :orders
 | load_id               | integer    | null: false                    |
 | area_id               | integer    | null: false                    |
 | shipping_date_id      | integer    | null: false                    |
-| price                 | string     | null: false                    |
+| price                 | integer    | null: false                    |
 | user                  | references | null: false, foreign_key: true |
 
 
@@ -64,13 +64,13 @@ has_one    : transact
 
 ## transactsテーブル
 
-| Column                |  Type      |  Options                      |
-|-----------------------|------------|-------------------------------|
+| Column                |  Type      |  Options                       |
+|-----------------------|------------|--------------------------------|
 | postal_code           | string     | null: false                    |
 | area_id               | integer    | null: false                    |
 | municipalities        | string     | null: false                    |
 | adress                | string     | null: false                    |
-| building              | string     |                               |
+| building              | string     |                                |
 | phone                 | string     | null: false                    |
 | order                 | references | null: false, foreign_key: true |
 
