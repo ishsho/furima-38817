@@ -7,14 +7,14 @@
 
 | Column                |  Type      |  Options                   |
 |-----------------------|------------|----------------------------|
-| nickname              | string     | nul: false                 |
-| email                 | string     | nul: false, unique: true   |
-| encrypted_password    | string     | nul: false                 |
-| family_name_japanese  | string     | nul: false                 |
-| first_name_japanese   | string     | nul: false                 |
-| family_name_katakana  | string     | nul: false                 |
-| first_name_katakana   | string     | nul: false                 |
-| birthday              | date       | nul: false                 |
+| nickname              | string     | null: false                 |
+| email                 | string     | null: false, unique: true   |
+| encrypted_password    | string     | null: false                 |
+| family_name_japanese  | string     | null: false                 |
+| first_name_japanese   | string     | null: false                 |
+| family_name_katakana  | string     | null: false                 |
+| first_name_katakana   | string     | null: false                 |
+| birthday              | date       | null: false                 |
 
 
 ### Association
@@ -28,15 +28,15 @@ has_many :orders
 
 | Column                |  Type      |  Options                      |
 |-----------------------|------------|-------------------------------|
-| item_name             | string     | nul: false                    |
-| content               | text       | nul: false                    |
-| category_id           | integer    | nul: false                    |
-| state_id              | integer    | nul: false                    |
-| load_id               | integer    | nul: false                    |
-| area_id               | integer    | nul: false                    |
-| shipping_date_id      | integer    | nul: false                    |
-| price                 | string     | nul: false                    |
-| user                  | references | nul: false, foreign_key: true |
+| item_name             | string     | null: false                    |
+| content               | text       | null: false                    |
+| category_id           | integer    | null: false                    |
+| state_id              | integer    | null: false                    |
+| load_id               | integer    | null: false                    |
+| area_id               | integer    | null: false                    |
+| shipping_date_id      | integer    | null: false                    |
+| price                 | integer    | null: false                    |
+| user                  | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -50,8 +50,8 @@ belongs_to :user
 
 | Column                |  Type      |  Options                      |
 |-----------------------|------------|-------------------------------|
-| user                  | references | nul: false, foreign_key: true |
-| item                  | references | nul: false, foreign_key: true |
+| user                  | references | null: false, foreign_key: true |
+| item                  | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -64,15 +64,15 @@ has_one    : transact
 
 ## transactsテーブル
 
-| Column                |  Type      |  Options                      |
-|-----------------------|------------|-------------------------------|
-| postal_code           | string     | nul: false                    |
-| area_id               | integer    | nul: false                    |
-| municipalities        | string     | nul: false                    |
-| adress                | string     | nul: false                    |
-| building              | string     |                               |
-| phone                 | string     | nul: false                    |
-| order                 | references | nul: false, foreign_key: true |
+| Column                |  Type      |  Options                       |
+|-----------------------|------------|--------------------------------|
+| postal_code           | string     | null: false                    |
+| area_id               | integer    | null: false                    |
+| municipalities        | string     | null: false                    |
+| adress                | string     | null: false                    |
+| building              | string     |                                |
+| phone                 | string     | null: false                    |
+| order                 | references | null: false, foreign_key: true |
 
 
 ### Association
