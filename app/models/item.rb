@@ -4,6 +4,7 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions 
   belongs_to :category
+  belongs_to :state
 
   validates :image, presence: true
   validates :content, presence: true
