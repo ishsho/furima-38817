@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def new
+    @oeder = Order.new
   end
 
   def create
