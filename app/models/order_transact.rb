@@ -1,12 +1,14 @@
 class OrderTransact
   include ActiveModel::Model
-  attr_accessor :postal_code, :area_id, :municipalities, :adress, :building, :phone, :order, :user_id, :item_id
+  attr_accessor :postal_code, :area_id, :municipalities, :adress, :building, 
+                :phone, :order, :user_id, :item_id, :token
 
   with_options presence: true do
     validates :municipalities 
     validates :adress
     validates :user_id
     validates :item_id
+    validates :token
   end
 
   validates :area_id, numericality: { other_than: 1, message: "can't be blank" } 
