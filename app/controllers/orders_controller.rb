@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @order_transact = OrderTransact.new
     if @item.order 
       redirect_to root_path
@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-     @item = Item.find(params[:item_id])
      @order_transact = OrderTransact.new(order_params)
     if @order_transact.valid?
       pay_item
@@ -22,6 +21,10 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
   def order_params
     params.require(:order_transact).permit(:postal_code, :area_id, :municipalities, 
