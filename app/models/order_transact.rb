@@ -10,7 +10,7 @@ class OrderTransact
   end
 
   validates :area_id, numericality: { other_than: 1, message: "can't be blank" } 
-  validates :postal_code, presence: true, format: {with: /\A\d{3}[-]?\d{4}\z/}
+  validates :postal_code, presence: true, format: {with: /\A\d{3}[-]\d{4}\z/}
   validates :phone, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/}
 
   def save
