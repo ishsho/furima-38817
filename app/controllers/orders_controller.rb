@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @order_transact = OrderTransact.new
-    if @item.order 
+    if @item.order  || @item.user == current_user
       redirect_to root_path
     end
   end
