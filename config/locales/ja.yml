@@ -19,6 +19,7 @@ ja:
         area_id: 発送元の地域
         shipping_date_id: 発送までの日数
         price: 価格
+        user: 出品者
 
   activemodel:
     attributes:
@@ -30,5 +31,7 @@ ja:
         building: 建物名
         phone: 電話番号
         token: クレジットカード情報
+        user_id: 購入者情報
+        item_id: 商品情報
 
 
