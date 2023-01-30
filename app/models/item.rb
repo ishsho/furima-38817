@@ -14,11 +14,11 @@ class Item < ApplicationRecord
   validates :item_name, presence: true
   validates :content, presence: true
 
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank"} 
-  validates :state_id, numericality: { other_than: 1, message: "can't be blank" } 
-  validates :load_id, numericality: { other_than: 1, message: "can't be blank" } 
-  validates :area_id, numericality: { other_than: 1, message: "can't be blank" } 
-  validates :shipping_date_id, numericality: { other_than: 1, message: "can't be blank" } 
+  validates :category_id, numericality: { other_than: 1, message: "を入力してください"} 
+  validates :state_id, numericality: { other_than: 1, message: "を入力してください" } 
+  validates :load_id, numericality: { other_than: 1, message: "を入力してください" } 
+  validates :area_id, numericality: { other_than: 1, message: "を入力してください" } 
+  validates :shipping_date_id, numericality: { other_than: 1, message: "を入力してください" } 
 
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 ,only_integer: true}
 
