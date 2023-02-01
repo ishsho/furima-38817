@@ -34,7 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
-  
+
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -82,3 +82,5 @@ gem 'payjp'
 gem 'rails-i18n'
 
 gem "aws-sdk-s3", require: false
+
+gem 'mail', '2.7.1'
